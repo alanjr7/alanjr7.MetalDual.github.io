@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Muebleria Ribera</title>
+</head>
+<body>
+    <header>
+        <a href="#loginForm" >Menu</a>
+    </header>
+<main>
+<section id="P1section">
+    <div class="texto" id="texto"></div><br><br>
+    <p>la mejor forma de comprar muebles es en nuestra tienda</p>
+</section>
+<section id="P2section">
+    <img src="./imagenes/c1.png" alt="">
+    <img src="./imagenes/c3.png" alt="">
+    <img src="./imagenes/c2.png" alt="">
+    <img src="./imagenes/c4.png" alt="">
+</section >
+<section id="P3section">
+    <div  class="imagen-container">
+        <img id="carrito" src="./imagenes/carrito.png" alt="Carrito">
+    </div>
+    <div class="textoP3">
+        <strong style="text-align: center; font-size: medium; font-family:cursive;">Muebleria Ribera:</strong>
+        <p class="parrafo">  ¿por que comprar aqui tu cama?<br>-porque no </p>
+    </div>
+</section>
+
+<section id="P4section">
+    <button class="button-53" role="button" onclick="sendWhatsAppMessage()"><p class="parrafo">Pedí Ahora </p></button>
+    
+</section>
+<section id="P5section">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+    
+    <div class="container">
+      <form  id="loginForm">
+        <p>hola!, ¿que buscas?, te muestro el catalogo</p>
+        <input type="text"   id="username" placeholder="nombre" ><br>
+        
+        <select id="bedType" required>
+            <option value="">Selecciona tipo de cama</option>
+            <option value="literas.html">Literas</option>
+            <option value="camas.html">Camas</option>
+         
+            <option value="somier.html">Somier</option>
+        </select><br>
+        <input type="button" value="vamos"><br>
+        <a href="https://wa.me/63603050">pregunta por whatsapp</a>
+      </form>
+    
+      <div class="drops">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+      </div>
+    </div>
+</section>
+</main>
+<footer>
+<p>Drake RR</p><br>
+<p>guapuru.alan@gmail.com</p>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+</footer>
+<script>
+    const texto = "MUEBLERIA RIBERA.";
+    const elementoTexto = document.getElementById("texto");
+    let index = 0;
+
+    function escribirTexto() {
+        if (index < texto.length) {
+            elementoTexto.innerHTML += texto.charAt(index);
+            index++;
+            setTimeout(escribirTexto, 130); // Ajusta la velocidad de escritura (en milisegundos)
+        } else {
+            // Eliminar el cursor después de que se complete el texto
+            elementoTexto.style.borderRight = 'none';
+        }
+    }
+
+    escribirTexto(); // Inicia el efecto al cargar la página
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+            const username = document.getElementById('username').value;
+            const bedType = document.getElementById('bedType').value;
+
+            if (bedType) {
+                window.location.href = bedType; // Redirige a la página seleccionada
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+
+        // Cambia el botón para que actúe como un botón de envío
+        document.querySelector('input[type="button"]').addEventListener('click', function() {
+            document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+        });
+        function sendWhatsAppMessage() {
+        const numeroWhatsApp = '63603050';
+        const mensaje = '¡Hola! Estoy interesado en comprar muebles. ¿Podrías ayudarme?'; // Cambia el mensaje según lo necesites
+        const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        window.open(enlaceWhatsApp, '_blank'); // Abre el enlace en una nueva pestaña
+    }
+</script>
+
+</body>
+</html>

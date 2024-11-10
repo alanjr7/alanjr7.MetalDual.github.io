@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de somier</title>
+  <link rel="stylesheet" href="./css/catalogo.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de somier</h1>
+        <p>Explora nuestra selección de literas para todos los gustos</p>
+    </header>
+
+    <div id="volver">
+        <a href="index.html" class="btn">Inicio</a>
+        <a href="camas.html" class="btn">camas</a>
+        <a href="literas.html" class="btn">somier</a>
+    </div>
+
+    <section class="catalog-container">
+        <div class="bed-card" onclick="toggleSelection(this)">
+            <img src="./imagenes/s1.png" alt="Litera Moderna">
+            <div class="bed-description">
+                <h2>somier clasico</h2>
+                <p>Diseño contemporáneo con acabados metálicos. Ideal para espacios reducidos.</p>
+            </div>
+        </div>
+
+        <div class="bed-card" onclick="toggleSelection(this)">
+            <img src="./imagenes/s2.png" alt="Litera Clásica">
+            <div class="bed-description">
+                <h2>somier clasico con baranda somier</h2>
+                <p>Madera de alta calidad con diseño elegante y robusto.</p>
+            </div>
+        </div>
+
+        <div class="bed-card" onclick="toggleSelection(this)">
+            <img src="./imagenes/s3.png" alt="Litera Clásica">
+            <div class="bed-description">
+                <h2>somier gemelos</h2>
+                <p>Madera de alta calidad con diseño elegante y robusto.</p>
+            </div>
+        </div>
+
+        <div class="bed-card" onclick="toggleSelection(this)">
+            <img src="./imagenes/s4.png" alt="Litera Clásica">
+            <div class="bed-description">
+                <h2>somier con respalda alto </h2>
+                <p>Madera de alta calidad con diseño elegante y robusto.</p>
+            </div>
+        </div>
+        <div class="bed-card" onclick="toggleSelection(this)">
+            <img src="./imagenes/s5.png" alt="Litera Clásica">
+            <div class="bed-description">
+                <h2> somier metal moderno</h2>
+                <p>Madera de alta calidad con diseño elegante y robusto.</p>
+            </div>
+        </div>
+        <div class="bed-card" onclick="toggleSelection(this)">
+            <img src="./imagenes/s6.png" alt="Litera Clásica">
+            <div class="bed-description">
+                <h2>somier con cajones</h2>
+                <p>Madera de alta calidad con diseño elegante y robusto.</p>
+            </div>
+        </div>
+    </section>
+
+    <img id="imagenFlotante"  src="./imagenes/carrito2.png" alt="Mensaje flotante" class="floating-message">
+    <div id="counter"> 0</div>
+    <script>
+        let selectedCount = 0;
+
+        let selectedItems = []; 
+
+      function toggleSelection(card) {
+        const itemName = card.querySelector('h2').innerText; // Obtener el nombre de la litera
+        card.classList.toggle('selected');
+        
+        if (card.classList.contains('selected')) {
+            selectedCount++;
+            selectedItems.push(itemName); // Agregar el nombre al array
+        } else {
+            selectedCount--;
+            selectedItems = selectedItems.filter(item => item !== itemName); // Eliminar el nombre del array
+        }
+
+        document.getElementById('counter').innerText = ` ${selectedCount}`;
+    }
+    document.getElementById('imagenFlotante').addEventListener('click', function() {
+        const itemsList = selectedItems.join(', '); // Crear una lista de nombres separados por comas
+        const mensaje = `Me gustan ${selectedCount} y son: ${itemsList}`;
+        const numeroWhatsApp = '63603050';
+        const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        window.open(enlaceWhatsApp, '_blank');
+    });
+    </script>
+
+</body>
+</html>

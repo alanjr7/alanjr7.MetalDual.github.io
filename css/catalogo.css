@@ -1,0 +1,137 @@
+    /* Reset de márgenes y padding */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    header {
+        background-color: #2c2e2d;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+    #volver{
+        display: flex; /* Cambia a flexbox para alinear los elementos internos */
+        align-items: center; /* Alinea verticalmente los elementos dentro de #volver */
+        justify-content: center; /* Alinea horizontalmente los elementos dentro de #volver */
+        gap: 10px; /* Espacio entre los botones */
+    }
+    a{
+background-color: #bdbdbd;
+    }
+.btn{
+  border-radius: 10px;
+    color: #000000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+.btn:hover{
+    background-color: #ebebeb;
+}
+
+
+  /* Estilo para las imágenes seleccionadas */
+  .bed-card.selected img {
+    filter: brightness(50%); /* Oscurece la imagen seleccionada */
+}
+
+/* Estilo para el contador */
+#counter {
+    position: fixed;
+    bottom: 80px; /* Arriba de la imagen flotante */
+    right: 20px; /* Alineado a la derecha */
+    background-color: rgba(255, 4, 4, 0.7); /* Fondo oscuro semitransparente */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 100%;
+    z-index: 1001; /* Asegura que esté por encima de otros elementos */
+}
+    /* Contenedor del catálogo */
+    .catalog-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    /* Estilos para cada tarjeta de cama */
+    .bed-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: calc(100% / 2 - 20px);
+        max-width: 300px;
+        transition: transform 0.2s;
+        cursor: pointer;
+    }
+
+    .bed-card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Imagen de la cama */
+    .bed-card img {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    /* Descripción de la cama */
+    .bed-description {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .bed-description h2 {
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    .bed-description p {
+        font-size: 1em;
+        color: #777;
+        margin-top: 10px;
+    }
+    .floating-message {
+        position: fixed; /* Fija la posición en la ventana */
+        bottom: 20px; /* Distancia desde el fondo */
+        right: 20px; /* Distancia desde la derecha */
+        width: 100px; /* Ajusta el tamaño según necesites */
+        height: auto; /* Mantiene la proporción de la imagen */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        animation: float 3s ease-in-out infinite; /* Efecto de flotación */
+    }
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* Estilo responsivo para dispositivos móviles */
+    @media (max-width: 600px) {
+        .bed-card {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+    }
