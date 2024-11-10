@@ -417,9 +417,7 @@ background: #000;
 
 
 @media (max-width: 768px) { /* Cambia a vertical en pantallas pequeñas */
-    body {
-    overflow-x: hidden;
-    }
+  
     .texto{
         font-size: 1.5rem;
     }
